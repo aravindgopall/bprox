@@ -1,0 +1,50 @@
+name:                bprox
+version:             0.1.0.0
+github:              "aravindgopall/bprox"
+license:             BSD3
+author:              "Aravind Gopal Mallapureddy"
+maintainer:          "aravindgopal.ag@gmail.com"
+copyright:           "2020 Aravind Gopal Mallapureddy"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/aravindgopall/bprox#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+- network
+
+library:
+  source-dirs: src
+
+executables:
+  bprox-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - bprox
+
+tests:
+  bprox-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - bprox
